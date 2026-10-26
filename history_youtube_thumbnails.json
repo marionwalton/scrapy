@@ -1,0 +1,28 @@
+[
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "image",
+    "expression": "grel:value.replace(/^https?:\\/\\/[^\\/]+\\/[^\\/]+\\/([^\\/?]+).*$/, \"$1\")",
+    "onError": "set-to-blank",
+    "newColumnName": "id",
+    "columnInsertIndex": 9,
+    "description": "Create column id at index 9 based on column image using expression grel:value.replace(/^https?:\\/\\/[^\\/]+\\/[^\\/]+\\/([^\\/?]+).*$/, \"$1\")"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "id",
+    "expression": "grel:\"https://www.youtube.com/watch?v=\"+value",
+    "onError": "set-to-blank",
+    "newColumnName": "url",
+    "columnInsertIndex": 10,
+    "description": "Create column url at index 10 based on column id using expression grel:\"https://www.youtube.com/watch?v=\"+value"
+  }
+]
